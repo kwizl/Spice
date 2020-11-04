@@ -24,5 +24,11 @@ namespace Spice.Areas.Admin.Controllers
             var category = await _db.Category.ToListAsync();
             return View(category);
         }
+
+        ///  GET - CREATE
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
