@@ -6,13 +6,13 @@
 }
 
 <br /><br />
-<div class="container border bg-light">
+<div class="border bg-light p-3">
     <div class="row">
         <div class="col-6">
             <h2 class="text-info">Category List</h2>
         </div>
         <div class="col-6 text-right">
-            Create Button
+            <partial name="_CreateButtonPartial" />
         </div>
     </div>
     <br />
@@ -32,7 +32,7 @@
                             @Html.DisplayFor(m => item.Name)
                         </td>
                         <td>
-                            EDIT | DELETE
+                            
                         </td>
                     </tr>
                 }
