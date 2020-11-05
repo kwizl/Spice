@@ -13,8 +13,7 @@ namespace Spice.Data.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: false),
-                    CateogryId = table.Column<int>(nullable: false),
-                    CategoryId = table.Column<int>(nullable: true)
+                    CategoryId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
