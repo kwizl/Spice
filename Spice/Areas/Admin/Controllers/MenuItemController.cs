@@ -15,20 +15,20 @@ namespace Spice.Areas.Admin.Controllers
     public class MenuItemController : Controller
     {
         private readonly ApplicationDbContext _db;
-        private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IWebHostEnvironment _hostingEnvironment;
 
         [BindProperty]
         public MenuItemViewModel MenuItemVM { get; set; }
 
-        public MenuItemController(ApplicationDbContext db, IHostingEnvironment hostingEnvironment)
+        public MenuItemController(ApplicationDbContext db, IWebHostEnvironment hostingEnvironment)
         {
             _db = db;
             _hostingEnvironment = hostingEnvironment;
-            MenuItemVM= new MenuItemViewModel()
+            MenuItemVM = new MenuItemViewModel()
             {
                 Category = _db.Category,
                 MenuItem = new Models.MenuItem()
-            }
+            };
         }
         public async Task<IActionResult> Index()
         {
