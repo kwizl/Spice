@@ -42,7 +42,7 @@
         </form>
     </div>
     <div class="col-3 offset-1">
-        @if(Model.SubCategoryList.Count() > 0)
+        @if (Model.SubCategoryList.Count() > 0)
         {
             <p>Existing SubCategories: </p>
 
@@ -51,11 +51,11 @@
             </div>
         }
     </div>
-    
+
 </div>
 
 @section Scripts {
-    @{ 
+    @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 
@@ -89,4 +89,5 @@
         });
 
     </script>
+    
 }
