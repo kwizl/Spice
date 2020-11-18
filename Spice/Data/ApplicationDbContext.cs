@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Spice.Models;
@@ -21,5 +22,7 @@ namespace Spice.Data
         public DbSet<MenuItem> MenuItem { get; set; }
 
         public DbSet<Coupon> Coupon { get; set; }
+
+        public DbSet<ApplicationUser> ApplicationUser { get; set; }
     }
 }
