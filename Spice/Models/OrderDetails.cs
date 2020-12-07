@@ -15,9 +15,10 @@ namespace Spice.Models
         [Required]
         public int OrderId { get; set; }
 
-        [Required]
+        [ForeignKey("OrderId")]
         public virtual OrderHeader OrderHeader { get; set; }
 
+        [Required]
         public int MenuItemId { get; set; }
 
         [ForeignKey("MenuItemId")]
@@ -26,7 +27,6 @@ namespace Spice.Models
         public int Count { get; set; }
 
         public string Name { get; set; }
-
         public string Description { get; set; }
 
         [Required]

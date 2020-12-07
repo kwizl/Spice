@@ -44,10 +44,11 @@ namespace Spice.Models
         public string PaymentStatus { get; set; }
         public string Comments { get; set; }
 
+
         [Display(Name = "Pickup Name")]
         public string PickupName { get; set; }
 
-        [Display(Name = "Pickup Number")]
+        [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
 
         public string TranscationId { get; set; }

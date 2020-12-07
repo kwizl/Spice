@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Spice.Data;
 
 namespace Spice.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201205200616_InitTrialOne")]
+    partial class InitTrialOne
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -286,7 +288,6 @@ namespace Spice.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Price")
@@ -326,6 +327,9 @@ namespace Spice.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("OrderHeaderId")
+                        .HasColumnType("int");
+
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
@@ -336,7 +340,7 @@ namespace Spice.Data.Migrations
 
                     b.HasIndex("MenuItemId");
 
-                    b.HasIndex("OrderId");
+                    b.HasIndex("OrderHeaderId");
 
                     b.ToTable("OrderDetails");
                 });
@@ -535,7 +539,7 @@ namespace Spice.Data.Migrations
 
                     b.HasOne("Spice.Models.OrderHeader", "OrderHeader")
                         .WithMany()
-                        .HasForeignKey("OrderId")
+                        .HasForeignKey("OrderHeaderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
