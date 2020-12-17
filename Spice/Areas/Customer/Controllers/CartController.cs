@@ -68,15 +68,12 @@ namespace Spice.Areas.Customer.Controllers
                 detailCart.OrderHeader.OrderTotal = SD.DiscountedPrice(couponFromDb, detailCart.OrderHeader.OrderTotalOriginal);
             }
 
-
             return View(detailCart);
-
         }
 
 
         public async Task<IActionResult> Summary()
         {
-
             detailCart = new OrderDetailsCart()
             {
                 OrderHeader = new Models.OrderHeader()
@@ -112,9 +109,7 @@ namespace Spice.Areas.Customer.Controllers
                 detailCart.OrderHeader.OrderTotal = SD.DiscountedPrice(couponFromDb, detailCart.OrderHeader.OrderTotalOriginal);
             }
 
-
             return View(detailCart);
-
         }
 
 
@@ -140,7 +135,6 @@ namespace Spice.Areas.Customer.Controllers
             await _db.SaveChangesAsync();
 
             detailCart.OrderHeader.OrderTotalOriginal = 0;
-
 
             foreach (var item in detailCart.listCart)
             {
@@ -169,6 +163,7 @@ namespace Spice.Areas.Customer.Controllers
             {
                 detailCart.OrderHeader.OrderTotal = detailCart.OrderHeader.OrderTotalOriginal;
             }
+
             detailCart.OrderHeader.CouponCodeDiscount = detailCart.OrderHeader.OrderTotalOriginal - detailCart.OrderHeader.OrderTotal;
 
             _db.ShoppingCart.RemoveRange(detailCart.listCart);
@@ -178,11 +173,12 @@ namespace Spice.Areas.Customer.Controllers
             var options = new ChargeCreateOptions
             {
                 Amount = Convert.ToInt32(detailCart.OrderHeader.OrderTotal * 100),
-                Currency = "usd",
+                Currency = "kes",
                 Description = "Order ID : " + detailCart.OrderHeader.Id,
                 Source = stripeToken
 
             };
+
             var service = new ChargeService();
             Charge charge = service.Create(options);
 
